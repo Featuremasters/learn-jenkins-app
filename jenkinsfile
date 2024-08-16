@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stage {
+        stage('HELLO') {
+            step {
+                echo "HELO FROM JENKINS"
+            }
+        }
+    }
+}
