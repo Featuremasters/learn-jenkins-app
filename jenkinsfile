@@ -15,11 +15,18 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
+                    echo "RUN TEST"
                     test -f build/index.html
-                    npm ci
                     npm run test 
                     '''
             }
         }
     }
+    post {
+        always {
+        junit 'test-results/junit.xml'
+        }
+    }
+
 }
+
